@@ -1,0 +1,93 @@
+@use "../../foundation/mixin" as *;
+
+// ============================================================
+// 疑問提示
+// Figma node: 13:2084 / height:582px / bg:#ffffff
+// ============================================================
+
+.question {
+  background-color: #ffffff;
+  height: auto;
+
+  // コンテンツ幅: 752px、中央配置
+  // (Figma: left:712px, width:752px in 2176px artboard → (2176-752)/2=712px)
+  // padding-top:100px (Figma: heading top:100px)
+  // padding-bottom: 582-(100+50+50+282)=100px
+  &__inner {
+    max-width: 752px;
+    margin: 0 auto;
+    padding: 100px 40px;
+
+    @include tab {
+      padding: 80px 40px;
+    }
+
+    @include sp {
+      padding: 48px 24px;
+    }
+  }
+
+  // "こんなことで迷っていませんか？"
+  // Figma node:13:2085 / 28px/Medium/color:#333/tracking:0.7px/lh:50.4px/center
+  // margin-bottom: 200px-(100px+50px)=50px（heading top→list top の差）
+  &__heading {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #333;
+    letter-spacing: 0.4px;
+    line-height: 29.5px;
+    text-align: center;
+    margin-bottom: 50px;
+
+    @include tab {
+      font-size: 22px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    @include sp {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+  }
+
+  // 質問リストコンテナ
+  // Figma node:13:2087 / flex-col, gap:24px, height:282px
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  // 各質問: 17px/Regular/color:#333/lh:34px/center
+  &__item {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #333;
+    line-height: 20px;
+    text-align: center;
+
+    @include tab {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    @include sp {
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    // "そう感じている方は、意外と多いと思います。"
+    // Figma node:13:2094 / h:50px, text top:13px → padding-top:13px
+    &--spaced {
+      padding-top: 13px;
+
+      @include sp {
+        padding-top: 8px;
+      }
+    }
+  }
+}

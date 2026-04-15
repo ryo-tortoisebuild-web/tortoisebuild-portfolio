@@ -1,0 +1,19 @@
+// ============================================================
+// Breakpoints
+// ============================================================
+$bp-tab: 768px;
+$bp-pc: 1280px;
+
+// タブレット以下（〜1279px）
+@mixin tab {
+  @media screen and (max-width: ($bp-pc - 1px)) {
+    @content;
+  }
+}
+
+// スマートフォン以下（〜767px）
+@mixin sp {
+  @media screen and (max-width: ($bp-tab - 1px)) {
+    @content;
+  }
+}

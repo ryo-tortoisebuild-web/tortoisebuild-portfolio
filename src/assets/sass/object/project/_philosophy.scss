@@ -1,0 +1,140 @@
+@use "../../foundation/mixin" as *;
+
+// ============================================================
+// 制作会社の方へ - 理念セクション
+// ============================================================
+
+.philosophy {
+  background-color: #ffffff;
+  padding: 100px 0;
+
+  @include tab {
+    padding: 80px 0;
+  }
+
+  @include sp {
+    padding: 48px 0;
+  }
+
+  &__inner {
+    max-width: 1072px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    @include tab {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    @include sp {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+  }
+
+  &__heading {
+    display: inline-flex;
+    flex-direction: column;
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #233640;
+    line-height: 1.6;
+    letter-spacing: 0.3955px;
+    margin-bottom: 40px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 1px;
+      background-color: #d7e1e4;
+      margin-top: 7px;
+    }
+
+    @include tab {
+      font-size: clamp(22px, 5vw, 24px);
+      margin-bottom: 32px;
+    }
+
+    @include sp {
+      font-size: 22px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    gap: 32px;
+
+    @include tab {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    @include sp {
+      gap: 24px;
+    }
+  }
+
+  &__card {
+    background-color: #faf8f4;
+    border: 3px solid #e6e1d8;
+    border-top-width: 5px;
+    border-radius: 12px;
+    width: 324px;
+    min-height: 200px;
+    padding: 26px 25px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-shrink: 0;
+
+    @include tab {
+      width: 100%;
+      min-height: auto;
+      padding: 24px 20px;
+    }
+
+    @include sp {
+      padding: 20px 16px;
+      gap: 12px;
+    }
+  }
+
+  &__card-title {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #233640;
+    line-height: 1.6;
+    letter-spacing: -0.4492px;
+
+    @include tab {
+      font-size: clamp(18px, 4.5vw, 20px);
+    }
+
+    @include sp {
+      font-size: 18px;
+    }
+  }
+
+  &__card-text {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #355f73;
+    line-height: 1.8;
+    letter-spacing: -0.2344px;
+
+    @include tab {
+      font-size: clamp(14px, 3.8vw, 15px);
+    }
+
+    @include sp {
+      font-size: 14px;
+    }
+  }
+}

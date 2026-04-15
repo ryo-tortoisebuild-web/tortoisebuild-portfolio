@@ -1,0 +1,88 @@
+@use "../foundation/mixin" as *;
+
+// ============================================================
+// フッター
+// Figma node: 182:234 / height:59px / bg:#f7f7f7
+// border-top: 1px solid rgba(29,86,107,0.1)
+// ============================================================
+
+.footer {
+  background-color: #f7f7f7;
+  border-top: 1px solid rgba(29, 86, 107, 0.1);
+  height: 59px;
+
+  @include sp {
+    height: auto;
+    padding: 20px 24px;
+  }
+
+  &__inner {
+    height: 100%;
+    padding: 0 40px 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    @include sp {
+      flex-direction: column;
+      gap: 8px;
+      height: auto;
+      align-items: center;
+      padding: 0;
+    }
+  }
+
+  &__logo {
+    display: block;
+
+    img {
+      width: 118px;
+      height: 24px;
+      object-fit: contain;
+
+      @include sp {
+        width: 100px;
+        height: 20px;
+      }
+    }
+  }
+
+  &__copy {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.5;
+    white-space: nowrap;
+    text-align: center;
+
+    @include sp {
+      position: static;
+      transform: none;
+      font-size: 10px;
+      white-space: normal;
+      text-align: center;
+    }
+  }
+
+  &__privacy {
+  font-family: "LINESeedJP_OTF", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #1d566b;
+  }
+
+  @include sp {
+    font-size: 11px;
+  }
+}
+}

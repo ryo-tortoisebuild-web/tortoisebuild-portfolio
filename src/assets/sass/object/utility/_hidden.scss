@@ -1,0 +1,31 @@
+@use "../../foundation/mixin" as *;
+
+.is-hidden {
+  display: none !important;
+}
+
+.hidden-sp {
+  @include sp {
+    display: none;
+  }
+}
+
+.hidden-pc {
+  display: none;
+  @include sp {
+    display: block;
+  }
+}
+
+.hidden-tab {
+  display: none;
+  @include tab {
+    display: block;
+  }
+}
+
+.u-hidden {
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}

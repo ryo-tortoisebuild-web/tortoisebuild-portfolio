@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8" />
+	<!-- favicon -->
+	<link rel="icon" type="image/x-icon" href="./favicon.ico" />
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>お問い合わせ | Tortoise Build</title>
+	<!-- SEO -->
+	<meta name="description" content="TortoiseBuildへのお問い合わせページです。Web制作のご相談・コーディング依頼など、まずはお気軽にご連絡ください。3営業日以内にご返信いたします。" />
+	<!-- OGP -->
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Tortoise Build" />
+	<meta property="og:title" content="お問い合わせ｜Tortoise Build" />
+	<meta property="og:description" content="TortoiseBuildへのお問い合わせページです。Web制作のご相談・コーディング依頼など、まずはお気軽にご連絡ください。3営業日以内にご返信いたします。" />
+	<meta property="og:url" content="https://tortoisebuild.com/contact.html" />
+	<meta property="og:image" content="https://tortoisebuild.com/assets/img/ogp.png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="お問い合わせ｜Tortoise Build" />
+	<meta name="twitter:description" content="TortoiseBuildへのお問い合わせページです。Web制作のご相談・コーディング依頼など、まずはお気軽にご連絡ください。3営業日以内にご返信いたします。" />
+	<meta name="twitter:image" content="https://tortoisebuild.com/assets/img/ogp.png" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<!-- LINE Seed JP -->
+	<link rel="stylesheet" href="https://cdn.linecdn.com/seed/jp/seed_jp.css" />
+	<!-- AOS -->
+	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+	<!-- CSS -->
+	<link rel="stylesheet" href="./assets/css/style.css?v=2" />
+</head>
+
+<body>
+	<!-- ========== Header ========== -->
+	<header class="header">
+		<div class="header__inner">
+			<!-- ロゴ -->
+			<a href="./index.html" class="header__logo">
+				<img src="./assets/img/TortoiseBuild_headerlogo.png" alt="Tortoise Build" width="200" height="40" />
+			</a>
+
+			<!-- ナビゲーション -->
+			<nav class="header__nav" id="header-nav" aria-label="グローバルナビゲーション">
+				<ul class="header__nav-list">
+					<li><a href="./index.html#concept" class="header__nav-link">導線設計</a></li>
+					<li><a href="./index.html#flow" class="header__nav-link">進め方</a></li>
+					<li><a href="./index.html#plan" class="header__nav-link">プラン</a></li>
+				</ul>
+				<div class="header__cta">
+					<a href="./contact.html" class="header__btn header__btn--primary">相談してみる</a>
+					<a href="./agency.html" class="header__btn header__btn--secondary">制作会社の方へ</a>
+				</div>
+			</nav>
+
+			<!-- ハンバーガーボタン -->
+			<button class="header__hamburger" id="hamburger-btn" aria-expanded="false" aria-controls="header-nav" aria-label="メニューを開く" type="button">
+				<span class="header__hamburger-line"></span>
+				<span class="header__hamburger-line"></span>
+				<span class="header__hamburger-line"></span>
+			</button>
+		</div>
+	</header>
+
+	<!-- ========== Main ========== -->
+	<main>
+		<!-- ========== お問い合わせ ========== -->
+		<!-- Figma node:182:163 / bg:#f5f2ec / height:1484px -->
+		<section class="contact-page">
+			<!-- 見出し: 32px/Bold/#233640/lh:48px -->
+			<h1 class="contact-page__heading" data-aos="fade-up">お問い合わせ</h1>
+
+			<!-- サブテキスト: 16px/Regular/#6c7e86/lh:28px/tracking:1.8px -->
+			<p class="contact-page__sub" data-aos="fade-up" data-aos-delay="50">
+				ご相談内容を確認のうえ、順次ご返信いたします。<br />
+				制作会社の方からのご相談もこちらからお送りください。
+			</p>
+
+			<!-- フォームカード: bg:white/border:#e6e1d8/radius:16px/w:920px -->
+			<!-- padding:80px 80px 60px / gap:28px -->
+			<form class="contact-page__form" action="./mail.php" method="post" novalidate data-aos="fade-up" data-aos-delay="100">
+				<!-- お名前（必須） -->
+				<div class="contact-page__field">
+					<div class="contact-page__label">
+						<label class="contact-page__label-text" for="name">お名前</label>
+						<span class="contact-page__badge contact-page__badge--required" aria-label="必須">必須</span>
+					</div>
+					<input class="contact-page__input" type="text" id="name" name="name" placeholder="山田 太郎" autocomplete="name" required />
+				</div>
+
+				<!-- フリガナ（必須） -->
+				<div class="contact-page__field">
+					<div class="contact-page__label">
+						<label class="contact-page__label-text" for="kana">フリガナ</label>
+						<span class="contact-page__badge contact-page__badge--required" aria-label="必須">必須</span>
+					</div>
+					<input class="contact-page__input" type="text" id="kana" name="kana" placeholder="ヤマダ タロウ" autocomplete="off" required />
+				</div>
+
+				<!-- メールアドレス（必須） -->
+				<div class="contact-page__field">
+					<div class="contact-page__label">
+						<label class="contact-page__label-text" for="email">メールアドレス</label>
+						<span class="contact-page__badge contact-page__badge--required" aria-label="必須">必須</span>
+					</div>
+					<input class="contact-page__input" type="email" id="email" name="email" placeholder="example@example.com" autocomplete="email" required />
+				</div>
+
+				<!-- 会社名（任意） -->
+				<div class="contact-page__field contact-page__field--company">
+					<div class="contact-page__label">
+						<label class="contact-page__label-text" for="company">会社名</label>
+						<span class="contact-page__badge contact-page__badge--optional" aria-label="任意">任意</span>
+					</div>
+					<input class="contact-page__input" type="text" id="company" name="company" placeholder="株式会社〇〇" autocomplete="organization" />
+					<p class="contact-page__hint">制作会社の方のみご入力ください。</p>
+				</div>
+
+				<!-- お問い合わせ項目（必須） -->
+				<div class="contact-page__field">
+					<div class="contact-page__label">
+						<label class="contact-page__label-text" for="category">お問い合わせ項目</label>
+						<span class="contact-page__badge contact-page__badge--required" aria-label="必須">必須</span>
+					</div>
+					<div class="contact-page__select-wrap">
+						<select class="contact-page__select" id="category" name="category" required>
+							<option value="">選択してください</option>
+							<option value="website">ウェブサイト制作のご相談</option>
+							<option value="coding">コーディングのご依頼</option>
+							<option value="wordpress">WordPress 制作のご相談</option>
+							<option value="support">制作サポートのご依頼</option>
+							<option value="other">その他</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- お問い合わせ内容（任意） -->
+				<div class="contact-page__field">
+					<div class="contact-page__label">
+						<label class="contact-page__label-text" for="message">お問い合わせ内容</label>
+						<span class="contact-page__badge contact-page__badge--optional" aria-label="任意">任意</span>
+					</div>
+					<textarea class="contact-page__textarea" id="message" name="message" placeholder="ご相談内容をご記入ください。&#10;案件概要やご希望の進め方などがあればあわせてお知らせください。"></textarea>
+				</div>
+
+				<!-- プライバシー同意 -->
+				<div class="contact-page__privacy">
+					<input class="contact-page__checkbox" type="checkbox" id="privacy" name="privacy" required />
+					<label class="contact-page__privacy-label" for="privacy">
+						<a href="./privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>に同意のうえ送信します
+					</label>
+				</div>
+
+				<!-- 送信ボタン: bg:#f47a2a / radius:10px / w:180px / h:56px / 16px/Bold/white -->
+				<button class="contact-page__submit" type="submit" id="submit-btn">送信する</button>
+			</form>
+		</section>
+	</main>
+
+	<!-- ========== Footer ========== -->
+	<footer class="footer">
+		<div class="footer__inner">
+			<a href="./index.html" class="footer__logo">
+				<img src="./assets/img/TortoiseBuild_headerlogo.png" alt="Tortoise Build" width="200" height="40" loading="lazy" />
+			</a>
+			<a href="./privacy.html" target="_blank" rel="noopener noreferrer" class="footer__privacy">プライバシーポリシー</a>
+			<small class="footer__copy">© 2026 TortoiseBuild. All rights reserved.</small>
+		</div>
+	</footer>
+
+	<!-- AOS -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<!-- JS -->
+	<script src="./assets/js/script.min.js"></script>
+	<script>
+		AOS.init({
+			duration: 600,
+			once: true,
+			offset: 80,
+		});
+	</script>
+	<!-- reCAPTCHA v3 -->
+	<script src="https://www.google.com/recaptcha/api.js?render=6LfmgbAsAAAAAL5UbiEvP13ofJqLlq6-WaTOxxgh"></script>
+</body>
+
+</html>

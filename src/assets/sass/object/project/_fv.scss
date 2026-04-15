@@ -1,0 +1,285 @@
+@use "../../foundation/mixin" as *;
+
+// ============================================================
+// FV（ファーストビュー）
+// ビューポート基準（100svh）で再設計
+// 木・テキスト・ラベルすべて中央基準のcalcで配置
+// ============================================================
+
+.fv {
+  position: relative;
+  width: 100%;
+  height: 590px;
+  margin-top: 60px;
+  background-color: #ffffff;
+  overflow: hidden;
+
+  // @include tab {
+  //   height: 700px;
+  // }
+
+  // @include sp {
+  //   height: 600px;
+  // }
+
+  // 背景木コンテナ（黒版・オレンジ版の2枚を重ねる）
+  // PC: 1400×1600px（7:8） / SP: 800×960px（5:6 ≒ 7:8）
+  &__tree {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90vw, 800px);
+    pointer-events: none;
+
+    @include tab {
+      width: min(70vw, 500px);
+      top: 35%;
+    }
+
+    @include sp {
+      width: min(80vw, 320px);
+      top: 30%;
+    }
+
+    picture:first-child {
+      display: block;
+      position: relative;
+      width: 100%;
+    }
+
+    picture:last-child {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // 背景木・黒版 / オレンジ版（JS で opacity を制御）
+  &__tree-black,
+  &__tree-orange {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+  }
+
+  // 来店導線ラベル
+  // Figma node:13:2082 / size:99×35px, border:1px solid #333
+  // text: 14px/Medium/color:#333/tracking:1.2px / center配置
+  &__label {
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 99px;
+    height: 35px;
+    border: 1px solid #333;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    letter-spacing: 1.2px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  // フローティングワード・コンテナ（.fv 全体を覆う position:absolute 領域）
+  &__words {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+    z-index: 2;
+
+    @include tab {
+      height: 60%;
+    }
+  }
+
+  // 各キーワード（JS アニメーション対象）
+  // CSS カスタムプロパティ --tx / --ty で散らばり → 整列アニメーションを管理
+  // 最終位置は nth-child の top で定義・left は木の幹位置（右寄り）固定
+  &__word {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translate(var(--tx, 0px), var(--ty, 0px));
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #333333;
+    letter-spacing: 0.3px;
+    line-height: 16.5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition:
+      transform 1.6s ease-out,
+      opacity 0.8s ease-out;
+
+    &:nth-child(1) {
+      top: 28%;
+    } // 強み
+    &:nth-child(2) {
+      top: 35%;
+    } // 空き状況
+    &:nth-child(3) {
+      top: 42%;
+    } // シーン
+    &:nth-child(4) {
+      top: 49%;
+    } // 商品
+    &:nth-child(5) {
+      top: 56%;
+    } // 安心
+    &:nth-child(6) {
+      top: 63%;
+    } // 口コミ
+    &:nth-child(7) {
+      top: 70%;
+    } // 予約
+
+    @include tab {
+      &:nth-child(1) { top: 10%; }
+      &:nth-child(2) { top: 18%; }
+      &:nth-child(3) { top: 26%; }
+      &:nth-child(4) { top: 34%; }
+      &:nth-child(5) { top: 42%; }
+      &:nth-child(6) { top: 50%; }
+      &:nth-child(7) { top: 58%; }
+    }
+  }
+
+  // メインコピー
+  // コピーブロック: left:82px（PC固定）
+  &__copy {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(50% - 420px);
+    width: clamp(240px, 35vw, 480px);
+    opacity: 0;
+
+    @include tab {
+      left: calc(50% - 340px);
+      width: auto;
+      max-width: 55%;
+    }
+
+    @include sp {
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% - 48px);
+      max-width: none;
+    }
+  }
+
+  // "事業に合わせて、" : 22px/Bold/color:#333/tracking:2.35px/lh:47px
+  &__copy-sub {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 2.35px;
+    line-height: 47px;
+    white-space: nowrap;
+    margin-bottom: 8px;
+
+    @include tab {
+      font-size: clamp(16px, 3vw, 22px);
+      letter-spacing: 1.5px;
+      line-height: 1.6;
+      white-space: normal;
+    }
+
+    @include sp {
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+      white-space: normal;
+      margin-bottom: 4px;
+    }
+  }
+
+  // "来店までの導線を整えます。" : 25px/Black(900)/color:#333/tracking:2.35px/lh:47px
+  &__copy-main {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    color: #333;
+    letter-spacing: 2.35px;
+    line-height: 47px;
+    white-space: nowrap;
+
+    @include tab {
+      font-size: clamp(18px, 3.5vw, 25px);
+      letter-spacing: 1.5px;
+      line-height: 1.6;
+      white-space: normal;
+    }
+
+    @include sp {
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+      white-space: normal;
+    }
+  }
+
+  // スクロールインジケーター
+  // flex-col, gap:9.975px
+  &__scroll {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9.975px;
+    opacity: 0;
+
+  }
+
+  // line: 1px × 38px / color:#d1d5dc / 上下ループアニメーション
+  &__scroll-line {
+    display: block;
+    width: 1px;
+    height: 38px;
+    background-color: #d1d5dc;
+    animation: scroll-bounce 1.5s ease-in-out infinite;
+  }
+
+  // "SCROLL": 7px/Regular/color:#555/tracking:0.7px/lh:16px
+  &__scroll-text {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 7px;
+    font-weight: 400;
+    color: #555;
+    letter-spacing: 0.7px;
+    line-height: 16px;
+    white-space: nowrap;
+  }
+}
+
+// スクロールインジケーターの上下ループ
+@keyframes scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}

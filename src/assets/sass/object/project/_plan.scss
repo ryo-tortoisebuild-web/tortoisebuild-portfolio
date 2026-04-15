@@ -1,0 +1,304 @@
+@use "../../foundation/mixin" as *;
+
+// ============================================================
+// プラン
+// Figma node: 63:283 / bg:#f7f7f7 / id="plan"
+// ============================================================
+
+.plan {
+  background-color: #f7f7f7;
+  padding: 100px 0;
+
+  @include tab {
+    padding: 80px 0;
+  }
+
+  @include sp {
+    padding: 48px 0;
+  }
+
+  // "ホームページ制作プラン": 18.8px/Bold/#1d566b/center
+  &__heading {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1d566b;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+
+    @include tab {
+      font-size: clamp(20px, calc(0.39vw + 17px), 22px);
+      margin-bottom: clamp(20px, 3vw, 30px);
+    }
+
+    @include sp {
+      font-size: 20px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+  }
+
+  // サブテキスト: 10px/Regular/#333/lh:20px/center
+  &__subtitle {
+    text-align: center;
+    margin-bottom: 32px;
+
+    p {
+      font-family: "LINESeedJP_OTF", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #333;
+      line-height: 20px;
+    }
+
+    &-note {
+      color: #555;
+      line-height: 34px;
+    }
+
+    @include tab {
+      margin-bottom: clamp(16px, 2.5vw, 20px);
+
+      p {
+        font-size: clamp(13px, calc(0.2vw + 11.46px), 14px);
+        line-height: 1.8;
+      }
+    }
+
+    @include sp {
+      margin-bottom: 24px;
+
+      p {
+        font-size: 13px;
+        line-height: 1.8;
+      }
+    }
+  }
+
+  // 3カードコンテナ: flex / justify-content:center / gap:35px / max-width:730px 中央配置
+  &__cards {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    align-items: stretch;
+    margin-bottom: 50px;
+    max-width: 790px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include tab {
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 24px;
+    }
+
+    @include sp {
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      max-width: 100%;
+      padding: 0 24px;
+    }
+  }
+
+  // プランカード共通: 212×298px / flex-shrink:0 / padding:15px / radius:6px / border:1px solid #ccc
+  &__card {
+    width: 280px;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    // おすすめ（スタンダード）: border:2px solid #1d566b
+    &--featured {
+      border: 2px solid #1d566b;
+    }
+
+    @include tab {
+      width: 100%;
+      max-width: 420px;
+      flex-shrink: 1;
+      text-align: center;
+      padding: 24px;
+    }
+
+    @include sp {
+      width: 100%;
+      max-width: 320px;
+      flex-shrink: 1;
+      min-height: auto;
+    }
+  }
+
+  // "おすすめ" バッジ: position:absolute / top:-7px, left:50% / bg:#fc5c1f
+  // 8.2px/Bold/white / radius:2.4px / padding:2.4px 9.4px
+  &__badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fc5c1f;
+    border-radius: 2.4px;
+    padding: 3px 14px;
+    white-space: nowrap;
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 21px;
+
+    @include tab {
+      font-size: clamp(10px, calc(0.2vw + 8.46px), 11px);
+    }
+
+    @include sp {
+      font-size: 10px;
+    }
+  }
+
+  // プラン名: 14px/Bold/#1d566b / margin-bottom:12px
+  &__card-name {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1d566b;
+    line-height: 21px;
+    margin-bottom: 12px;
+
+    @include tab {
+      font-size: 16px;
+    }
+
+    @include sp {
+      font-size: 16px;
+      line-height: 1.5;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+  }
+
+  // 価格: 16.5px/Bold/#1d566b / margin-bottom:4px
+  &__card-price {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1d566b;
+    line-height: 25px;
+    margin-bottom: 12px;
+
+    @include tab {
+      font-size: clamp(18px, calc(0.39vw + 15px), 20px);
+    }
+
+    @include sp {
+      font-size: 18px;
+      line-height: 1.5;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+  }
+
+  // 説明文: 9.4px/Regular/#666 / margin-bottom:4px
+  &__card-desc {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 16px;
+
+    @include tab {
+      font-size: clamp(12px, calc(0.2vw + 10.46px), 13px);
+    }
+
+    @include sp {
+      font-size: 12px;
+      line-height: 1.6;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+  }
+
+  // 区切り線: border-color:#ccc / margin:6px 0
+  &__card-hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 6px 0;
+  }
+
+  // 内容リスト: flex-col / gap:7px / 9.4px/Regular/#333/lh:14px
+  &__card-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    li {
+      font-family: "LINESeedJP_OTF", sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    @include tab {
+      li {
+        font-size: clamp(12px, calc(0.2vw + 10.46px), 13px);
+      }
+    }
+
+    @include sp {
+      gap: 8px;
+      align-items: center;
+
+      li {
+        font-size: 12px;
+        line-height: 1.6;
+        text-align: center;
+      }
+    }
+  }
+
+  // 注記テキスト: flex-col / gap:7px / 10px/Regular/#555/lh:17px/center
+  &__note {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    margin-top: 32px;
+
+    p {
+      font-family: "LINESeedJP_OTF", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #555;
+      line-height: 17px;
+    }
+
+    @include tab {
+      p {
+        font-size: clamp(13px, calc(0.2vw + 11.46px), 14px);
+        line-height: 1.8;
+      }
+    }
+
+    @include sp {
+      margin-top: 24px;
+
+      p {
+        font-size: 13px;
+        line-height: 1.8;
+        padding: 0 24px;
+      }
+    }
+  }
+}

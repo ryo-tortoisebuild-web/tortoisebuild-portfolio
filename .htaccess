@@ -1,0 +1,8 @@
+# mail.phpへのGETアクセスのみ禁止（POSTは許可）
+
+<Files "mail.php">
+<LimitExcept POST>
+Order Allow,Deny
+Deny from all
+</LimitExcept>
+</Files>

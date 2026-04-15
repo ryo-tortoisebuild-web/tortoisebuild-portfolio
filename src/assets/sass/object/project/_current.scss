@@ -1,0 +1,221 @@
+@use "../../foundation/mixin" as *;
+
+// ============================================================
+// 現状整理
+// Figma node: 1:62 / height:920px / bg:#ffffff
+// ============================================================
+
+.current {
+  background-color: #ffffff;
+  // padding-top:59px (heading top:59px), padding-bottom:77px（greybox height 分）
+  padding: 100px 0;
+
+  @include tab {
+    padding: 80px 0;
+    overflow: hidden;
+  }
+
+  // max-width:1200px, centered
+  // Figma: left:488px, width:1200px / (2176-1200)/2=488px
+  &__inner {
+    position: relative;
+    max-width: 706px;
+    margin: 0 auto;
+
+    @include tab {
+      padding: 0 40px;
+    }
+  }
+
+  // "判断するための材料は、そろっていますか？"
+  // Figma node:1:63 / 21px/Bold/color:#333/lh:23.5px/center
+  // margin-bottom: 124px-(59px+23.5px)=41.5px（questions top:124px）
+  &__heading {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    line-height: 23.5px;
+    text-align: center;
+    margin-bottom: 41.5px;
+
+    @include tab {
+      font-size: clamp(16px, 4.5vw, 20px);
+      line-height: 1.6;
+      margin-bottom: clamp(32px, 6vw, 70px);
+    }
+
+    @include sp {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+  }
+
+  // 質問コンテナ: position:relative で絶対配置の基点
+  // Figma: height:281px (405px-124px) / margin-bottom:0（note top:405px に接続）
+  &__questions {
+    position: relative;
+    height: 281px;
+    margin-bottom: 0;
+
+    @include tab {
+      height: clamp(260px, 35vw, 360px);
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+
+    @include sp {
+      height: auto;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+  }
+
+  // 各質問アイテム共通
+  // border-left-color:#1d566b, padding-left:20px, flex+align-items:center
+  &__question {
+    position: absolute;
+    width: 291px;
+    border-left-style: solid;
+    border-left-color: #1d566b;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+
+    // Item1: center基準 (inner:706px / center=353px → left=0 → calc(50%-353px))
+    // Figma node:1:66
+    &--1 {
+      left: 0;
+      top: 0;
+      height: 61px;
+      border-left-width: 1.8px;
+    }
+
+    // Item2: left:206px, top:93px
+    // Figma node:1:69
+    &--2 {
+      left: 206px;
+      top: 93px;
+      height: 64px;
+      border-left-width: 2.4px;
+
+      @include tab {
+        left: clamp(0px, calc((100vw - 768px) * 0.35), 206px);
+      }
+    }
+
+    // Item3: left:374px, top:180px
+    // Figma node:1:72
+    &--3 {
+      left: 374px;
+      top: 180px;
+      height: 66px;
+      border-left-width: 3px;
+
+      @include tab {
+        left: clamp(0px, calc((100vw - 768px) * 0.64), 374px);
+        top: clamp(186px, calc(93px + (100vw - 768px) * 0.17), 180px);
+      }
+    }
+
+    // SP: flex アイテムとして中央配置
+    @include sp {
+      position: static;
+      width: 100%;
+      height: auto;
+      left: auto;
+      top: auto;
+      padding: 20px 0 20px 16px;
+    }
+  }
+
+  // 質問テキスト: Noto Sans JP Regular/color:#333/tracking:0.7px/lh:23px
+  // font-size はモディファイアで上書き（--1:14px, --2:15px, --3:16.5px）
+  &__question-text {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 14px; // --1 の基本値（Figma node:1:68）
+    font-weight: 400;
+    color: #333;
+    letter-spacing: 0.7px;
+    line-height: 23px;
+    white-space: nowrap;
+
+    @include tab {
+      white-space: normal;
+      font-size: clamp(10px, 4vw, 14px);
+      line-height: 1.7;
+    }
+  }
+
+  // --2 の font-size: 15px（Figma node:1:71）
+  &__question--2 &__question-text {
+    font-size: 15px;
+  }
+
+  // --3 の font-size: 16.5px（Figma node:1:74）
+  &__question--3 &__question-text {
+    font-size: 16.5px;
+  }
+
+  // モバイルで --2/--3 の font-size も clamp に統一
+  @include tab {
+    &__question--2 &__question-text,
+    &__question--3 &__question-text {
+      font-size: clamp(14px, 4vw, 16px);
+    }
+  }
+
+  // まとめボックス: width:511px, height:77px, bg:#f7f7f7, radius:5px
+  // Figma node:1:75 / margin:0 auto で中央配置
+  &__note {
+    width: 511px;
+    height: auto;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    margin: 44px auto 0;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include tab {
+      height: auto;
+      padding: 24px 40px;
+      width: 90%;
+      max-width: 560px;
+    }
+
+    @include sp {
+      width: 100%;
+      padding: 20px 24px;
+    }
+  }
+
+  // ボックステキスト: 14px/Regular/color:#555/tracking:0.7px/lh:26.5px/center
+  // Figma node:1:77
+  &__note-text {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #555;
+    letter-spacing: 0.7px;
+    line-height: 26.5px;
+    text-align: center;
+
+    @include tab {
+      font-size: clamp(10px, 3.8vw, 14px);
+      line-height: 1.7;
+      letter-spacing: normal;
+    }
+
+    @include sp {
+      font-size: 12px;
+      line-height: 1.7;
+      letter-spacing: normal;
+    }
+  }
+}

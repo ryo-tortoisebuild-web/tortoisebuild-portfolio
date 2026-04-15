@@ -1,0 +1,339 @@
+@use "../../foundation/mixin" as *;
+
+// ============================================================
+// お問い合わせページ
+// Figma node: 182:163 / bg:#f5f2ec / height:1484px
+// ============================================================
+
+.contact-page {
+  background-color: #f5f2ec;
+  padding: 150px 24px 90px;
+
+  @include tab {
+    padding: 100px 40px;
+  }
+  @include sp {
+    padding: 100px 20px;
+  }
+
+  // 見出し: 32px/Bold/#233640/lh:48px/text-center
+  // top:90px → section padding-top で吸収
+  &__heading {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #233640;
+    line-height: 48px;
+    text-align: center;
+    margin-bottom: 40px; // 178-90-48=40px
+
+    @include tab {
+      font-size: clamp(22px, 5vw, 30px);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+  }
+
+  // サブテキスト: 16px/Regular/#6c7e86/lh:28px/tracking:1.8px/text-center
+  // top:178px → heading下 40px / 2行 height:64px
+  &__sub {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #6c7e86;
+    line-height: 28px;
+    letter-spacing: 1.8px;
+    text-align: center;
+    margin-bottom: 32px; // 274-(178+64)=32px
+
+    @include tab {
+      font-size: clamp(11px, 2.8vw, 14px);
+      line-height: 1.8;
+      letter-spacing: 0.3px;
+      margin-bottom: 24px;
+    }
+  }
+
+  // フォームカード: bg:white / border:1px #e6e1d8 / radius:16px
+  // w:920px / padding: 80px 80px 60px / gap:28px
+  &__form {
+    max-width: 920px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #e6e1d8;
+    border-radius: 16px;
+    padding: 80px 80px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+
+    @include tab {
+      padding: 40px 20px 40px;
+      gap: 24px;
+      border-radius: 12px;
+    }
+  }
+
+  // 各フィールドグループ
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    // 会社名フィールドは高さ120px（hint text含む）
+    // label h:24px / input top:32px → label→input 8px / input→hint 8px
+    &--company {
+      gap: 0;
+
+      .contact-page__label {
+        margin-bottom: 8px; // Figma: label bottom(24px)→input top(32px) = 8px gap
+      }
+    }
+  }
+
+  // ラベル行: flex / gap:8px / align-items:center
+  &__label {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  // ラベルテキスト: 15px/Bold/#233640/lh:22.5px
+  &__label-text {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #233640;
+    line-height: 22.5px;
+
+    @include tab {
+      font-size: clamp(14px, 3.8vw, 15px);
+    }
+  }
+
+  // 必須/任意バッジ: 12px/Medium / 24×24px / text-center
+  // 必須: color:#eadccf（ウォームピーチ）
+  // 任意: color:rgba(108,126,134,0.5)
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: center;
+    flex-shrink: 0;
+
+    &--required {
+      color: #eadccf;
+    }
+
+    &--optional {
+      color: #eadccf; // Figma node:182:249/255: same color as required
+    }
+  }
+
+  // テキスト入力: w:560px / h:56px / border:#dcd6cc / radius:10px / px:16px
+  &__input {
+    width: 560px;
+    height: 56px;
+    background-color: #ffffff;
+    border: 1px solid #dcd6cc;
+    border-radius: 10px;
+    padding: 0 16px;
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 15px;
+    color: #233640;
+    outline: none;
+    transition: border-color 0.2s ease;
+    appearance: none;
+
+    &::placeholder {
+      color: rgba(35, 54, 64, 0.5);
+    }
+
+    &:focus {
+      border-color: #1d566b;
+    }
+
+    @include tab {
+      width: 100%;
+      height: 52px;
+      font-size: clamp(14px, 3.8vw, 15px);
+    }
+  }
+
+  // ヒントテキスト（会社名下）: 13px/Regular/rgba(108,126,134,0.5)/lh:19.5px
+  &__hint {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(108, 126, 134, 0.5);
+    line-height: 19.5px;
+    margin-top: 8px;
+  }
+
+  // セレクトラッパー（シェブロン付き）
+  &__select-wrap {
+    position: relative;
+    width: 560px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 8px;
+      background-color: #6c7e86;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      pointer-events: none;
+    }
+
+    @include tab {
+      width: 100%;
+    }
+  }
+
+  // セレクト: 入力フィールドと同仕様
+  &__select {
+    width: 100%;
+    height: 56px;
+    background-color: #ffffff;
+    border: 1px solid #dcd6cc;
+    border-radius: 10px;
+    padding: 0 16px;
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 15px;
+    color: rgba(35, 54, 64, 0.5);
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: #1d566b;
+    }
+
+    option:not([value=""]) {
+      color: #233640;
+    }
+
+    @include tab {
+      height: 52px;
+      font-size: clamp(14px, 3.8vw, 15px);
+    }
+  }
+
+  // テキストエリア: w:full / h:196px / px:16px / py:10px / border:#dcd6cc / radius:10px
+  // placeholder tracking:1.7px
+  &__textarea {
+    width: 100%;
+    height: 196px;
+    background-color: #ffffff;
+    border: 1px solid #dcd6cc;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 15px;
+    color: #233640;
+    line-height: 26.25px;
+    letter-spacing: 1.7px;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s ease;
+    appearance: none;
+
+    &::placeholder {
+      color: rgba(35, 54, 64, 0.5);
+    }
+
+    &:focus {
+      border-color: #1d566b;
+    }
+
+    @include tab {
+      font-size: clamp(10px, 2.5vw, 15px);
+      height: 160px;
+    }
+  }
+
+  // プライバシー同意行: flex / gap:16px / align-items:end
+  // Figma node:182:210: items-end (checkbox 20px / label 24px → 下揃え)
+  &__privacy {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    justify-content: center;
+
+    @include tab {
+      align-items: center;
+    }
+  }
+
+  // チェックボックス: 20×20px
+  &__checkbox {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    accent-color: #1d566b;
+    cursor: pointer;
+  }
+
+  // プライバシーラベル: 14px/Medium/#4f6770/lh:21px
+  &__privacy-label {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4f6770;
+    line-height: 21px;
+    cursor: pointer;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    @include tab {
+      font-size: clamp(10px, 2.5vw, 14px);
+      line-height: 1.7;
+    }
+  }
+
+  // 送信ボタン: bg:#f47a2a / radius:10px / w:180px / h:56px / 16px/Bold/white
+  &__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 180px;
+    height: 56px;
+    background-color: #f47a2a;
+    border: none;
+    border-radius: 10px;
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 24px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    @include tab {
+      width: 100%;
+      max-width: 280px;
+      height: 52px;
+      font-size: clamp(15px, 4vw, 16px);
+      border-radius: 8px;
+    }
+  }
+}

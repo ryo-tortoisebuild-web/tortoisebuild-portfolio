@@ -1,0 +1,166 @@
+@use "../../foundation/mixin" as *;
+
+// ============================================================
+// プライバシーポリシーページ
+// bg:#ffffff / padding:80px 24px 120px
+// ============================================================
+
+.privacy-page {
+  background-color: #ffffff;
+  padding: 120px 24px 120px;
+
+  @include tab {
+    padding: 120px 40px 80px;
+  }
+
+  @include sp {
+    padding: 120px 20px 80px;
+  }
+
+  &__inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  // ページ見出し: 32px/Bold/#233640
+  &__heading {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #233640;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e6e1d8;
+
+    @include tab {
+      font-size: clamp(22px, 5vw, 28px);
+    }
+  }
+
+  // 更新日: 13px/Regular/#6c7e86
+  &__update {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #6c7e86;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  // リード文: 15px/Regular/#355f73
+  &__lead {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #355f73;
+    line-height: 1.9;
+    margin-bottom: 48px;
+  }
+
+  // 各条項ブロック
+  &__section {
+    margin-bottom: 36px;
+  }
+
+  // 条項見出し: 17px/Bold/#233640
+  &__section-title {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #233640;
+    line-height: 1.6;
+    margin-bottom: 12px;
+
+    @include tab {
+      font-size: 16px;
+    }
+  }
+
+  // サブ見出し（【】）: 14px/Bold/#355f73
+  &__sub-title {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #355f73;
+    line-height: 1.7;
+    margin-top: 16px;
+    margin-bottom: 6px;
+  }
+
+  // 本文: 14px/Regular/#4f6770
+  &__text {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #4f6770;
+    line-height: 1.9;
+
+    & + & {
+      margin-top: 10px;
+    }
+
+    a {
+      color: #1d566b;
+      text-underline-offset: 2px;
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+  }
+
+  // 箇条書きリスト
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  // リスト項目
+  &__list-item {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #4f6770;
+    line-height: 1.9;
+    padding-left: 1em;
+    position: relative;
+    overflow-wrap: break-word;
+    word-break: break-word;
+
+    a {
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+
+    &::before {
+      content: "・";
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  // 補足注記: 13px/Regular/#6c7e86
+  &__note {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #6c7e86;
+    line-height: 1.8;
+    margin-top: 6px;
+  }
+
+  // 制定日ブロック
+  &__date {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #6c7e86;
+    line-height: 1.8;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #e6e1d8;
+  }
+}

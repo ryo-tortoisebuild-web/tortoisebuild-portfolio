@@ -1,0 +1,408 @@
+@use "../../foundation/mixin" as *;
+
+// ============================================================
+// 制作の流れ
+// Figma node: 54:217 / height:672px / bg:#ffffff / id="flow"
+// ============================================================
+
+.flow {
+  position: relative;
+  height: 820px;
+  background-color: #ffffff;
+  overflow: hidden;
+  text-align: center;
+
+  @include tab {
+    height: auto;
+    overflow: visible;
+    overflow-x: hidden;
+    padding: 80px 0;
+  }
+
+  @include sp {
+    height: auto;
+    overflow: visible;
+    overflow-x: hidden;
+    padding: 40px 0;
+  }
+
+  &__deco {
+    position: absolute;
+    right: calc(50% - 640px - 12px);
+    top: 129px;
+    width: 518px;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  &__inner {
+    position: relative;
+    height: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    @include tab {
+      height: auto;
+      overflow: visible;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    @include sp {
+      height: auto;
+      overflow: visible;
+      padding: 0;
+    }
+  }
+
+  &__heading {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #222;
+    line-height: 32px;
+    text-align: center;
+
+    @include tab {
+      position: static;
+      font-size: clamp(20px, calc(0.39vw + 17px), 22px);
+      margin-bottom: 32px;
+      top: auto;
+      left: auto;
+      right: auto;
+    }
+
+    @include sp {
+      position: static;
+      font-size: 20px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__card {
+    position: absolute;
+    left: 240px;
+    top: 160px;
+    width: 800px;
+    height: 220px;
+    border-radius: 9.4px;
+    background-color: #f7f7f7;
+    box-shadow: 0px 3.5px 14px rgba(0, 0, 0, 0.03);
+
+    @include tab {
+      position: static;
+      width: 100%;
+      height: auto;
+      left: auto;
+      top: auto;
+      overflow: visible;
+      margin: 0 auto 40px;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    @include sp {
+      position: static;
+      width: 90%;
+      height: auto;
+      overflow: visible;
+      padding: 16px;
+    }
+  }
+
+  &__steps {
+    position: absolute;
+    top: 21px;
+    left: 40px;
+    width: 720px;
+    height: 42px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #e3e6e8;
+    }
+
+    @include tab {
+      position: static;
+      width: 100%;
+      height: auto;
+      left: auto;
+      top: auto;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 4px;
+      margin-bottom: 20px;
+      overflow: visible;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    @include sp {
+      position: static;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 4px;
+      margin-bottom: 20px;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__step {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    gap: 7px;
+
+    &:nth-child(1) {
+      left: 0;
+    }
+    &:nth-child(2) {
+      left: 155px;
+    }
+    &:nth-child(3) {
+      left: 310px;
+    }
+    &:nth-child(4) {
+      left: 465px;
+    }
+    &:nth-child(5) {
+      left: 620px;
+    }
+
+    @include tab {
+      position: static;
+      width: calc(20% - 3px);
+      min-width: 0;
+      gap: 6px;
+      flex-shrink: 1;
+    }
+
+    @include sp {
+      position: static;
+      width: calc(20% - 3px);
+      min-width: 0;
+      gap: 6px;
+      flex-shrink: 1;
+    }
+  }
+
+  &__step-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: #1d566b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+
+    span {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    @include tab {
+      width: 28px;
+      height: 28px;
+    }
+
+    @include sp {
+      width: 28px;
+      height: 28px;
+
+      span {
+        font-size: 10px;
+      }
+    }
+  }
+
+  &__step-label {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+    white-space: normal;
+    line-height: 11.5px;
+
+    @include tab {
+      font-size: clamp(9px, calc(0.78vw + 3.01px), 13px);
+      line-height: 1.4;
+      white-space: normal;
+    }
+
+    @include sp {
+      font-size: clamp(7px, 2vw, 9px);
+      white-space: normal;
+      line-height: 1.4;
+    }
+  }
+
+  &__card-body {
+    position: absolute;
+    top: 128px;
+    left: 40px;
+    width: 720px;
+
+    @include tab {
+      position: static;
+      width: 100%;
+      top: auto;
+      left: auto;
+    }
+
+    @include sp {
+      position: static;
+      width: 100%;
+      top: auto;
+      left: auto;
+    }
+  }
+
+  &__card-title {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #222;
+    line-height: 19px;
+    margin-bottom: 10px;
+
+    @include tab {
+      font-size: clamp(14px, calc(0.39vw + 11px), 16px);
+      margin-bottom: 8px;
+    }
+
+    @include sp {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__card-text {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.8;
+
+    @include tab {
+      font-size: clamp(12px, calc(0.2vw + 10.46px), 13px);
+      line-height: 1.8;
+    }
+
+    @include sp {
+      font-size: 12px;
+      line-height: 1.8;
+    }
+  }
+
+  &__details {
+    position: absolute;
+    left: 240px;
+    top: 440px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include tab {
+      position: static;
+      width: 100%;
+      left: auto;
+      top: auto;
+      padding: 0;
+    }
+
+    @include sp {
+      position: static;
+      width: 90%;
+      margin: 0 auto;
+      padding: 0;
+    }
+  }
+
+  &__detail {
+    display: flex;
+    gap: 19px;
+    align-items: flex-start;
+  }
+
+  &__detail-line {
+    width: 1px;
+    height: 40px;
+    background-color: #ececec;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  &__detail-body {
+    flex: 1;
+    min-width: 0;
+    max-width: 620px;
+  }
+
+  &__detail-title {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #222;
+    line-height: 16px;
+    margin-bottom: 4px;
+    text-align: left;
+
+    @include tab {
+      font-size: clamp(13px, calc(0.2vw + 11.46px), 14px);
+    }
+
+    @include sp {
+      font-size: 13px;
+    }
+  }
+
+  &__detail-text {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #555;
+    line-height: 17px;
+    text-align: left;
+
+    @include tab {
+      font-size: clamp(12px, calc(0.2vw + 10.46px), 13px);
+      line-height: 1.8;
+    }
+
+    @include sp {
+      font-size: 12px;
+      line-height: 1.8;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+@use "../../foundation/mixin" as *;
+
+// ============================================================
+// 制作会社の方へ - FV
+// Figma比率基準：キャンバス幅1088px
+// 木: left:71.7% / top:9.7% / width:28.1%
+// テキスト: left:19.5% / top:垂直中央
+// ============================================================
+
+.agency-fv {
+  position: relative;
+  background-color: #f7f7f7;
+  height: 600px;
+  overflow: hidden;
+  margin-top: 60px;
+
+  // 装飾木：比率で配置、画面幅が変わっても位置を維持
+  &__tree {
+    position: absolute;
+    left: 54%;
+    top: 9.7%;
+    width: 320px;
+    opacity: 0.42;
+    pointer-events: none;
+
+    @include tab {
+      opacity: 0.2;
+    }
+
+    @include sp {
+      left: 40%;
+      top: 5%;
+      width: 70%;
+      opacity: 0.12;
+    }
+  }
+
+  // テキストブロック：比率で配置、垂直中央
+  &__content {
+    position: absolute;
+    left: 19.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: max-content;
+
+    @include sp {
+      position: static;
+      transform: none;
+      width: auto;
+      padding: 72px 24px 48px;
+    }
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: clamp(24px, 2.2vw, 28px);
+    color: #24323a;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+
+    &-line1 {
+      font-weight: 600;
+    }
+
+    &-line2 {
+      font-weight: 700;
+    }
+
+    @include sp {
+      font-size: 24px;
+      gap: 8px;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__sub {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: clamp(14px, 1.25vw, 16px);
+    font-weight: 400;
+    color: #355f73;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+
+    @include sp {
+      font-size: 14px;
+      letter-spacing: 0;
+    }
+  }
+
+  @include sp {
+    height: auto;
+    min-height: 320px;
+  }
+}

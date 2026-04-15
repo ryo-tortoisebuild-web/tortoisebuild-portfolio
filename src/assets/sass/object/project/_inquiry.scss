@@ -1,0 +1,110 @@
+@use "../../foundation/mixin" as *;
+
+// ============================================================
+// 制作会社の方へ - 問い合わせCTA
+// ============================================================
+
+.inquiry {
+  background-color: #ffffff;
+  padding: 100px 0;
+
+  @include tab {
+    padding: 80px 0;
+  }
+
+  @include sp {
+    padding: 48px 0;
+  }
+
+  &__inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+
+    @include tab {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    @include sp {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+  }
+
+  &__heading {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #233640;
+    line-height: 1.6;
+    letter-spacing: 0.4063px;
+    margin-bottom: 20px;
+
+    @include tab {
+      font-size: clamp(22px, 5vw, 24px);
+      margin-bottom: 16px;
+    }
+
+    @include sp {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #6c7e86;
+    line-height: 1.8;
+    letter-spacing: -0.3125px;
+    margin-bottom: 32px;
+
+    @include tab {
+      font-size: clamp(14px, 3.8vw, 15px);
+      margin-bottom: 28px;
+    }
+
+    @include sp {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fc5c1f;
+    border-radius: 8px;
+    width: 180px;
+    height: 48px;
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.5;
+    letter-spacing: -0.3125px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    @include tab {
+      width: 100%;
+      max-width: 280px;
+      height: 48px;
+    }
+
+    @include sp {
+      max-width: 240px;
+      font-size: 15px;
+    }
+  }
+}

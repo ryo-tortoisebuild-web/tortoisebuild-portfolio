@@ -1,0 +1,219 @@
+@use "../foundation/mixin" as *;
+
+// ============================================================
+// Header
+// ============================================================
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid rgba(29, 86, 107, 0.1);
+  z-index: 100;
+
+  // ヘッダー内コンテナ
+  // ロゴ left:40px / nav right端から右端まで: 2176-(1560+584)=32px → padding: 0 32px 0 40px
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 40px 0 24px;
+
+    @include tab {
+      padding: 0 24px; // ハンバーガー left:24px に合わせる
+    }
+  }
+
+  // ロゴ: 200×40px, top:20px（80pxの中央 = (80-40)/2 = 20px）
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    img {
+      width: 118px;
+      height: 24px;
+      object-fit: contain;
+    }
+  }
+
+  // ナビゲーション
+  // PC: 横並び, gap:32px（全nav要素間の共通gap）
+  // SP/TAB: 非表示 → is-open で全画面ドロワー表示
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    @include tab {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 60px);
+      background-color: #f7f7f7;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 48px;
+      padding: 40px 24px;
+
+      &.is-open {
+        display: flex;
+      }
+    }
+  }
+
+  // navリンクリスト: gap:32px（Figma: 各リンク間の距離）
+  &__nav-list {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    @include tab {
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+
+  // navリンク: Noto Sans JP Regular, 15px, #555, line-height:22px
+  &__nav-link {
+    font-family: "LINESeedJP_OTF", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #555;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #1d566b;
+    }
+
+    @include tab {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  // CTAボタン群: gap:8px
+  &__cta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    @include tab {
+      flex-direction: column;
+      width: 100%;
+      gap: 16px;
+    }
+  }
+
+  // ボタン共通
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    white-space: nowrap;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    // 相談してみる: 96×36px / bg:#fc5c1f / 9.4px/500/white / padding:8px 0
+    &--primary {
+      width: 116px;
+      height: 36px;
+      background-color: #fc5c1f;
+      color: #ffffff;
+      font-family: "LINESeedJP_OTF", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 0;
+
+      @include tab {
+        width: 100%;
+        max-width: 240px;
+        height: 48px;
+        font-size: 16px;
+      }
+    }
+
+    // 制作会社の方へ: 110×36px / border:1px solid #1d566b / 8.8px/400/#1d566b / padding:8px 0
+    &--secondary {
+      width: 126px;
+      height: 36px;
+      background-color: #ffffff;
+      border: 1px solid #1d566b;
+      color: #1d566b;
+      font-family: "LINESeedJP_OTF", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      padding: 8px 0;
+
+      @include tab {
+        width: 100%;
+        max-width: 240px;
+        height: 48px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  // ハンバーガーボタン: Figma Container 32×24px (left:24px, top:16px)
+  // 3本線 × 2px、gap:(24-3×2)/2=9px でコンテナを埋める
+  &__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    width: 32px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    @include tab {
+      display: flex;
+    }
+  }
+
+  // ハンバーガー線: 32×2px
+  // ラインの色はFigmaのContainerノード(13:2267)に色指定なし → navリンク色(#555)に合わせる
+  &__hamburger-line {
+    display: block;
+    width: 32px;
+    height: 2px;
+    background-color: #555;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  // 開いた状態（×アイコン）
+  // line1 center: 1px, line2 center: 2+9+1=12px, line3 center: 2+9+2+9+1=23px
+  // line1 → line2まで: 12-1=11px, line3 → line2まで: 23-12=11px
+  &__hamburger[aria-expanded="true"] {
+    .header__hamburger-line:nth-child(1) {
+      transform: translateY(11px) rotate(45deg);
+    }
+
+    .header__hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .header__hamburger-line:nth-child(3) {
+      transform: translateY(-11px) rotate(-45deg);
+    }
+  }
+}

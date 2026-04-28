@@ -1,25 +1,48 @@
 <!doctype html>
 <html lang="ja">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-36ZHJ72YMM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-36ZHJ72YMM");
+    </script>
     <meta charset="UTF-8" />
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tortoise Build</title>
+    <title>TortoiseBuild｜横浜のWeb制作・ホームページ制作</title>
     <!-- SEO -->
-    <meta name="description" content="飲食店・中小事業者向けのWeb制作サービス。来店導線の整理から構造設計・実装まで一貫して対応します。まずはお気軽にご相談ください。" />
+    <meta
+      name="description"
+      content="横浜を拠点に、飲食店・個人事業主向けのホームページ制作を行っています。来店導線の整理から構造設計・実装まで一貫して対応します。まずはお気軽にご相談ください。"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://tortoisebuild.com/" />
     <!-- OGP -->
+    <meta property="og:locale" content="ja_JP" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Tortoise Build" />
-    <meta property="og:title" content="Tortoise Build｜来店導線を整えるWeb制作" />
-    <meta property="og:description" content="飲食店・中小事業者向けのWeb制作サービス。来店導線の整理から構造設計・実装まで一貫して対応します。まずはお気軽にご相談ください。" />
+    <meta property="og:site_name" content="TortoiseBuild" />
+    <meta property="og:title" content="TortoiseBuild｜横浜のWeb制作・ホームページ制作" />
+    <meta
+      property="og:description"
+      content="横浜を拠点に、飲食店・個人事業主向けのホームページ制作を行っています。来店導線の整理から構造設計・実装まで一貫して対応します。まずはお気軽にご相談ください。"
+    />
     <meta property="og:url" content="https://tortoisebuild.com/" />
     <meta property="og:image" content="https://tortoisebuild.com/assets/img/ogp.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Tortoise Build｜来店導線を整えるWeb制作" />
-    <meta name="twitter:description" content="飲食店・中小事業者向けのWeb制作サービス。来店導線の整理から構造設計・実装まで一貫して対応します。まずはお気軽にご相談ください。" />
+    <meta name="twitter:title" content="TortoiseBuild｜横浜のWeb制作・ホームページ制作" />
+    <meta
+      name="twitter:description"
+      content="横浜を拠点に、飲食店・個人事業主向けのホームページ制作を行っています。来店導線の整理から構造設計・実装まで一貫して対応します。まずはお気軽にご相談ください。"
+    />
     <meta name="twitter:image" content="https://tortoisebuild.com/assets/img/ogp.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,7 +58,7 @@
         <a href="./index.html" class="header__logo">
           <img
             src="./assets/img/TortoiseBuild_headerlogo.png"
-            alt="Tortoise Build"
+            alt="TortoiseBuild"
             width="200"
             height="40"
           />
@@ -71,12 +94,12 @@
       <section class="fv" id="fv">
         <div class="fv__tree" aria-hidden="true">
           <picture>
-            <source media="(max-width: 767px)" srcset="./assets/img/fv_tree_black_sp.png" />
-            <img class="fv__tree-black" src="./assets/img/fv_tree_black_pc.png" alt="" />
+            <source media="(max-width: 767px)" srcset="./assets/img/fv_tree_black_sp.webp" />
+            <img class="fv__tree-black" src="./assets/img/fv_tree_black_pc.webp" alt="" />
           </picture>
           <picture>
-            <source media="(max-width: 767px)" srcset="./assets/img/fv_tree_orange_sp.png" />
-            <img class="fv__tree-orange" src="./assets/img/fv_tree_orange_pc.png" alt="" />
+            <source media="(max-width: 767px)" srcset="./assets/img/fv_tree_orange_sp.webp" />
+            <img class="fv__tree-orange" src="./assets/img/fv_tree_orange_pc.webp" alt="" />
           </picture>
         </div>
 
@@ -216,7 +239,7 @@
       <section class="value">
         <img
           class="value__bg"
-          src="./assets/img/background_image.png"
+          src="./assets/img/background_image.webp"
           alt=""
           aria-hidden="true"
           loading="lazy"
@@ -241,7 +264,7 @@
       <section class="flow" id="flow">
         <img
           class="flow__deco"
-          src="./assets/img/tree_rings.png"
+          src="./assets/img/tree_rings.webp"
           alt=""
           aria-hidden="true"
           loading="lazy"
@@ -409,10 +432,20 @@
               制作の考え方や日々の積み上げは、<br class="hidden-pc" />SNSでも発信しています。
             </p>
             <div class="contact__sns-icons">
-              <a href="https://x.com/tortoisebuild" class="contact__sns-link" aria-label="X（旧Twitter）" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://x.com/tortoisebuild"
+                class="contact__sns-link"
+                aria-label="X（旧Twitter）"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img src="./assets/img/x_logo.svg" alt="X" width="22" height="22" loading="lazy" />
               </a>
-              <a href="https://www.instagram.com/ryo_tortoisebuild/" class="contact__sns-link" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/ryo_tortoisebuild/"
+                class="contact__sns-link"
+                aria-label="Instagram"
+              >
                 <img
                   src="./assets/img/instagram_logo.svg"
                   alt="Instagram"

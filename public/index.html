@@ -2,25 +2,40 @@
 <html lang="ja">
 
 <head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-36ZHJ72YMM"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-36ZHJ72YMM");
+	</script>
 	<meta charset="UTF-8" />
 	<!-- favicon -->
 	<link rel="icon" type="image/x-icon" href="./favicon.ico" />
 	<link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png" />
 	<link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Tortoise Build</title>
+	<title>TortoiseBuild｜横浜のWeb制作・ホームページ制作</title>
 	<!-- SEO -->
-	<meta name="description" content="飲食店・中小事業者向けのWeb制作サービス。来店導線の整理から構造設計・実装まで一貫して対応します。まずはお気軽にご相談ください。" />
+	<meta name="description" content="横浜を拠点に、飲食店・個人事業主向けのホームページ制作を行っています。来店導線の整理から構造設計・実装まで一貫して対応します。まずはお気軽にご相談ください。" />
+	<meta name="robots" content="index, follow" />
+	<link rel="canonical" href="https://tortoisebuild.com/" />
 	<!-- OGP -->
+	<meta property="og:locale" content="ja_JP" />
 	<meta property="og:type" content="website" />
-	<meta property="og:site_name" content="Tortoise Build" />
-	<meta property="og:title" content="Tortoise Build｜来店導線を整えるWeb制作" />
-	<meta property="og:description" content="飲食店・中小事業者向けのWeb制作サービス。来店導線の整理から構造設計・実装まで一貫して対応します。まずはお気軽にご相談ください。" />
+	<meta property="og:site_name" content="TortoiseBuild" />
+	<meta property="og:title" content="TortoiseBuild｜横浜のWeb制作・ホームページ制作" />
+	<meta property="og:description" content="横浜を拠点に、飲食店・個人事業主向けのホームページ制作を行っています。来店導線の整理から構造設計・実装まで一貫して対応します。まずはお気軽にご相談ください。" />
 	<meta property="og:url" content="https://tortoisebuild.com/" />
 	<meta property="og:image" content="https://tortoisebuild.com/assets/img/ogp.png" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Tortoise Build｜来店導線を整えるWeb制作" />
-	<meta name="twitter:description" content="飲食店・中小事業者向けのWeb制作サービス。来店導線の整理から構造設計・実装まで一貫して対応します。まずはお気軽にご相談ください。" />
+	<meta name="twitter:title" content="TortoiseBuild｜横浜のWeb制作・ホームページ制作" />
+	<meta name="twitter:description" content="横浜を拠点に、飲食店・個人事業主向けのホームページ制作を行っています。来店導線の整理から構造設計・実装まで一貫して対応します。まずはお気軽にご相談ください。" />
 	<meta name="twitter:image" content="https://tortoisebuild.com/assets/img/ogp.png" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,14 +43,14 @@
 	<!-- AOS -->
 	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 	<!-- CSS -->
-	<link rel="stylesheet" href="./assets/css/style.css?v=2" />
+	<link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
 	<header class="header">
 		<div class="header__inner">
 			<a href="./index.html" class="header__logo">
-				<img src="./assets/img/TortoiseBuild_headerlogo.png" alt="Tortoise Build" width="200" height="40" />
+				<img src="./assets/img/TortoiseBuild_headerlogo.png" alt="TortoiseBuild" width="200" height="40" />
 			</a>
 			<nav class="header__nav" id="header-nav" aria-label="グローバルナビゲーション">
 				<ul class="header__nav-list">
@@ -61,12 +76,12 @@
 		<section class="fv" id="fv">
 			<div class="fv__tree" aria-hidden="true">
 				<picture>
-					<source media="(max-width: 767px)" srcset="./assets/img/fv_tree_black_sp.png" />
-					<img class="fv__tree-black" src="./assets/img/fv_tree_black_pc.png" alt="" />
+					<source media="(max-width: 767px)" srcset="./assets/img/fv_tree_black_sp.webp" />
+					<img class="fv__tree-black" src="./assets/img/fv_tree_black_pc.webp" alt="" />
 				</picture>
 				<picture>
-					<source media="(max-width: 767px)" srcset="./assets/img/fv_tree_orange_sp.png" />
-					<img class="fv__tree-orange" src="./assets/img/fv_tree_orange_pc.png" alt="" />
+					<source media="(max-width: 767px)" srcset="./assets/img/fv_tree_orange_sp.webp" />
+					<img class="fv__tree-orange" src="./assets/img/fv_tree_orange_pc.webp" alt="" />
 				</picture>
 			</div>
 
@@ -192,7 +207,7 @@
 		</section>
 
 		<section class="value">
-			<img class="value__bg" src="./assets/img/background_image.png" alt="" aria-hidden="true" loading="lazy" />
+			<img class="value__bg" src="./assets/img/background_image.webp" alt="" aria-hidden="true" loading="lazy" />
 			<p class="value__label" data-aos="fade-in">整理 → 構造 → 設計</p>
 			<div class="value__content" data-aos="fade-up" data-aos-delay="200">
 				<div class="value__group">
@@ -211,7 +226,7 @@
 		</section>
 
 		<section class="flow" id="flow">
-			<img class="flow__deco" src="./assets/img/tree_rings.png" alt="" aria-hidden="true" loading="lazy" />
+			<img class="flow__deco" src="./assets/img/tree_rings.webp" alt="" aria-hidden="true" loading="lazy" />
 			<div class="flow__inner">
 				<h2 class="flow__heading" data-aos="fade-up">制作の流れ</h2>
 

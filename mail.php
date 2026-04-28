@@ -1,4 +1,14 @@
 <?php
+$dotenv_path = __DIR__ . '/.env';
+if (file_exists($dotenv_path)) {
+    $lines = file($dotenv_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+        [$key, $value] = explode('=', $line, 2);
+        $_ENV[trim($key)] = trim($value);
+    }
+}
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -20,7 +30,7 @@ $message = trim( $_POST['message'] ?? '' );
 
 // reCAPTCHA v3 検証
 $recaptcha_token = $_POST['recaptcha_token'] ?? '';
-$recaptcha_secret = '6LfmgbAsAAAAAJUNHlVuYpMdvuroM63FvoLvsfoe';
+$recaptcha_secret = $_ENV['RECAPTCHA_SECRET'] ?? getenv('RECAPTCHA_SECRET');
 
 if ( ! empty( $recaptcha_token ) ) {
 	$verify = file_get_contents(
@@ -70,7 +80,7 @@ try {
 	$mail->Host = 'smtp.gmail.com';
 	$mail->SMTPAuth = true;
 	$mail->Username = 'ryoichi-takami@tortoisebuild.com';
-	$mail->Password = 'ooiloiiewkubfgbx';
+	$mail->Password = $_ENV['SMTP_PASSWORD'] ?? getenv('SMTP_PASSWORD');
 	$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 	$mail->Port = 587;
 	$mail->CharSet = 'UTF-8';

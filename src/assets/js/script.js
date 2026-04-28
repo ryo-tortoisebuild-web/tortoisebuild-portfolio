@@ -333,7 +333,7 @@ if (contactForm) {
     if (!hasError) {
       grecaptcha.ready(function () {
         grecaptcha
-          .execute("6LfmgbAsAAAAAL5UbiEvP13ofJqLlq6-WaTOxxgh", { action: "contact" })
+          .execute("6Lf73c4sAAAAAByvLC-SjOPj2seCC8NfieiLBvVH", { action: "contact" })
           .then(function (token) {
             const input = document.createElement("input");
             input.type = "hidden";

@@ -1,3 +1,14 @@
+# wwwなし・httpsに統一
+RewriteEngine On
+
+# http → https
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# www → wwwなし
+RewriteCond %{HTTP_HOST} ^www\.tortoisebuild\.com [NC]
+RewriteRule ^(.*)$ https://tortoisebuild.com/$1 [L,R=301]
+
 # mail.phpへのGETアクセスのみ禁止（POSTは許可）
 
 <Files "mail.php">
